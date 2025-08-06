@@ -49,7 +49,7 @@ const Questions = () => {
           <div className="flex flex-col gap-3 text-xl">
             {currentQuestion.options.map((option, idx) => {
               let btnClass =
-                "w-[300px] sm:w-[350px] md:w-[500px] hover:outline outline-[#6a6a6a] py-3 px-6 rounded-full text-left bg-[#3a3f47] transition-all duration-350 hover:ml-4";
+                "w-[300px] sm:w-[350px] md:w-[500px] hover:outline outline-[#6a6a6a] py-3 px-6 rounded-full text-left bg-[#3a3f47] hover:bg-[#343a40] transition-all duration-350 hover:ml-4";
 
               if (answer !== null) {
                 if (idx === currentQuestion.correctOption) {

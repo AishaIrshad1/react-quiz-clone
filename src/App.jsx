@@ -1,6 +1,5 @@
 // App.jsx
 import React, { useEffect, useReducer } from "react";
-import "./App.css";
 import { QuestionsProvider } from "./Contexts/questionsContext";
 import Questions from "./components/Questions";
 import reactLogo from "./logo512.png";
@@ -86,17 +85,21 @@ function App() {
 
   return (
     <QuestionsProvider value={{ status, dispatch }}>
-      <div className="app">
-        <header className="header">
-          <div className="logo-title-container">
-            <img src={reactLogo} alt="React Logo" className="logo" />
-            <img
-              src={reactTitle}
-              alt="The React Quiz Title"
-              className="quiz-title"
-            />
-          </div>
-        </header>
+      <div className="bg-[#343a40]">
+       <header className="w-full flex items-center justify-center py-8 bg-[#343a40]">
+  <img
+    src={reactLogo}
+    alt="React Logo"
+    className="h-36 w-36 mr-8"
+    style={{ minWidth: 96, minHeight: 96 }}
+  />
+  <img
+    src={reactTitle}
+    alt="The React Quiz Title"
+    className="h-28 object-contain"
+    style={{ minWidth: 420 }}
+  />
+</header>
 
         {status === "ready" && (
           <main className="main">
