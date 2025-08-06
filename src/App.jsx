@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import { useState } from "react";
+import CountdownTimer from "./components/CountdownTimer";
+import ProgressBar from "./components/ProgressBar";
+import QuestionDisplay from "./components/QuestionDisplay";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answeredCount, setAnsweredCount] = useState(0);
+
+  const questions = [
+    { question: "What is React?", options: [], correct: "", points: 10 },
+    { question: "What is JSX?", options: [], correct: "", points: 10 },
+    { question: "What is useState?", options: [], correct: "", points: 10 },
+    { question: "What is useEffect?", options: [], correct: "", points: 10 },
+    { question: "What is a component?", options: [], correct: "", points: 10 },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div
+      style={{
+        minHeight: "100vh",
+        minWidth: "50vw",
+        backgroundColor: "#334155",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+        fontFamily:
+          '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif',
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "42rem",
+          margin: "0 auto",
+          textAlign: "center",
+        }}
+      >
+        <ProgressBar current={answeredCount} total={questions.length} />
+        <QuestionDisplay
+          questionIndex={currentQuestion}
+          totalQuestions={questions.length}
+          questionText={questions[currentQuestion].question}
+        />
+        <CountdownTimer initialTime={450} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
