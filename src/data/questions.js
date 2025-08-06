@@ -6,121 +6,129 @@ const questions = [
     points: 10,
   },
   {
-    question: "What does HTML stand for?",
-    options: [
-      "Hyper Text Markup Language",
-      "Home Tool Markup Language",
-      "Hyperlinks and Text Markup Language",
-      "Hyper Technical Modern Language",
-    ],
-    correctOption: 0,
-    points: 10,
-  },
-  {
-    question: "Which company developed JavaScript?",
-    options: ["Netscape", "Google", "Microsoft", "Apple"],
-    correctOption: 0,
-    points: 10,
-  },
-  {
-    question: "Which of the following is not a programming language?",
-    options: ["Python", "HTML", "Java", "C++"],
-    correctOption: 1,
-    points: 10,
-  },
-  {
-    question: "What does CSS stand for?",
-    options: [
-      "Cascading Style Sheets",
-      "Creative Style System",
-      "Computer Style Syntax",
-      "Colorful Style Sheet",
-    ],
-    correctOption: 0,
-    points: 10,
-  },
-  {
-    question: "Which HTML tag is used to define an unordered list?",
-    options: ["<ol>", "<ul>", "<li>", "<list>"],
-    correctOption: 1,
-    points: 10,
-  },
-  {
-    question:
-      "What is the default behavior of the position property 'static' in CSS?",
-    options: [
-      "Element stays in place on scroll",
-      "Element flows with normal document flow",
-      "Element floats above other elements",
-      "Element is hidden",
-    ],
-    correctOption: 1,
-    points: 10,
-  },
-  {
-    question: "Which of these is a JavaScript data type?",
-    options: ["String", "Boolean", "Number", "All of the above"],
+    question: "Which company invented React?",
+    options: ["Google", "Apple", "Netflix", "Facebook"],
     correctOption: 3,
     points: 10,
   },
   {
-    question: "Which array method removes the last element from an array?",
-    options: ["pop()", "push()", "shift()", "unshift()"],
+    question: "What's the fundamental building block of React apps?",
+    options: ["Components", "Blocks", "Elements", "Effects"],
     correctOption: 0,
     points: 10,
   },
   {
-    question: "What is React primarily used for?",
-    options: [
-      "Styling web pages",
-      "Building user interfaces",
-      "Handling databases",
-      "Server-side scripting",
-    ],
-    correctOption: 1,
-    points: 10,
-  },
-  {
-    question: "Which keyword declares a variable in JavaScript?",
-    options: ["int", "string", "let", "define"],
+    question: "What's the name of the syntax we use to describe the UI in React components?",
+    options: ["FBJ", "Babel", "JSX", "ES2015"],
     correctOption: 2,
     points: 10,
   },
   {
-    question: "Which method can be used to round a number in JavaScript?",
+    question: "How does data flow naturally in React apps?",
+    options: ["From parents to children", "From children to parents", "Both ways", "The developers decides"],
+    correctOption: 0,
+    points: 10,
+  },
+  {
+    question: "How to pass data into a child component?",
+    options: ["State", "Props", "PropTypes", "Parameters"],
+    correctOption: 1,
+    points: 10,
+  },
+  {
+    question: "When to use derived state?",
     options: [
-      "Math.ceil()",
-      "Math.floor()",
-      "Math.round()",
-      "All of the above",
+      "Whenever the state should not trigger a re-render",
+      "Whenever the state can be synchronized with an effect",
+      "Whenever the state should be accessible to all components",
+      "Whenever the state can be computed from another state variable"
     ],
     correctOption: 3,
     points: 10,
   },
   {
-    question:
-      "Which protocol is used for secure communication over the internet?",
-    options: ["HTTP", "FTP", "HTTPS", "TCP"],
-    correctOption: 2,
-    points: 10,
-  },
-  {
-    question: "Which of the following is a CSS framework?",
-    options: ["Django", "Bootstrap", "Laravel", "React"],
-    correctOption: 1,
-    points: 10,
-  },
-  {
-    question: "What does the `typeof` operator do in JavaScript?",
+    question: "What triggers a UI re-render in React?",
     options: [
-      "Returns the length of a string",
-      "Checks if variable is defined",
-      "Returns the type of a variable",
-      "Creates a new variable",
+      "Running an effect",
+      "Passing props",
+      "Updating state",
+      "Adding event listeners to DOM elements"
     ],
     correctOption: 2,
     points: 10,
   },
+  {
+    question: "When do we directly \"touch\" the DOM in React?",
+    options: [
+      "When we need to listen to an event",
+      "When we need to change the UI",
+      "When we need to add styles",
+      "Almost never"
+    ],
+    correctOption: 3,
+    points: 10,
+  },
+  {
+    question: "In what situation do we use a callback to update state?",
+    options: [
+      "When updating the state will be slow",
+      "When the updated state is very data-intensive",
+      "When the state update should happen faster",
+      "When the new state depends on the previous state"
+    ],
+    correctOption: 3,
+    points: 10,
+  },
+  {
+    question: "If we pass a function to useState, when will that function be called?",
+    options: [
+      "On each re-render",
+      "Each time we update the state",
+      "Only on the initial render",
+      "The first time we update the state"
+    ],
+    correctOption: 2,
+    points: 10,
+  },
+  {
+    question: "Which hook to use for an API request on the component's initial render?",
+    options: ["useState", "useEffect", "useRef", "useReducer"],
+    correctOption: 1,
+    points: 10,
+  },
+  {
+    question: "Which variables should go into the useEffect dependency array?",
+    options: [
+      "Usually none",
+      "All our state variables",
+      "All state and props referenced in the effect",
+      "All variables needed for clean up"
+    ],
+    correctOption: 2,
+    points: 10,
+  },
+  {
+    question: "An effect will always run on the initial render.",
+    options: [
+      "True",
+      "It depends on the dependency array",
+      "False",
+      "In depends on the code in the effect"
+    ],
+    correctOption: 1,
+    points: 10,
+  },
+  {
+    question: "When will an effect run if it doesn't have a dependency array?",
+    options: [
+      "Only when the component mounts",
+      "Only when the component unmounts",
+      "The first time the component re-renders",
+      "Each time the component is re-rendered"
+    ],
+    correctOption: 3,
+    points: 10,
+  }
 ];
 
 export default questions;

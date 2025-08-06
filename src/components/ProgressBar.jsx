@@ -1,4 +1,3 @@
-// ProgressBar.jsx
 "use client";
 
 const ProgressBar = ({ current, total }) => {

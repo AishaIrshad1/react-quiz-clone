@@ -1,4 +1,3 @@
-// QuestionDisplay.jsx
 "use client";
 
 const QuestionDisplay = ({ questionIndex, totalQuestions, questionText }) => {
@@ -13,9 +12,8 @@ const QuestionDisplay = ({ questionIndex, totalQuestions, questionText }) => {
         marginBottom: "2rem",
       }}
     >
-      <div style={{ fontSize: "1.25rem", color: "#cbd5e1" }}>
-        Question{" "}
-        <span style={{ fontWeight: "bold" }}>{questionIndex + 1}</span> /{" "}
+      <div style={{ fontSize: "1.25rem" }}>
+        Question <span style={{ fontWeight: "bold" }}>{questionIndex + 1}</span> /{" "}
         {totalQuestions}
       </div>
       <h2 style={{ color: "white", fontSize: "1.5rem" }}>{questionText}</h2>
