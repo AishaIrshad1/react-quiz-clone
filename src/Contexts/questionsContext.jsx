@@ -20,14 +20,17 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'dataReceived':
       return { ...state, questions: action.payload, status: 'ready' };
-    case 'dataFiled':
+
+    case 'dataFailed':
       return { ...state, status: 'error' };
+
     case 'start':
       return {
         ...state,
         status: 'active',
         seconds: state.questions.length * SECONDS_PER_QUESTION,
       };
+
     case 'newAnswer':
       const question = state.questions.at(state.index);
       return {
@@ -38,18 +41,21 @@ const reducer = (state, action) => {
             ? state.points + question.points
             : state.points,
       };
+
     case 'nextQuestion':
       return {
         ...state,
         index: state.index + 1,
         answer: null,
       };
+
     case 'finished':
       return {
         ...state,
         status: 'finished',
         highscore: Math.max(state.highscore, state.points),
       };
+
     case 'restart':
       return {
         ...initialState,
@@ -57,12 +63,14 @@ const reducer = (state, action) => {
         questions: state.questions,
         highscore: state.highscore,
       };
+
     case 'tick':
       return {
         ...state,
         seconds: state.seconds - 1,
         status: state.seconds === 0 ? 'finished' : state.status,
       };
+
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -82,7 +90,7 @@ function QuestionsProvider({ children }) {
     try {
       dispatch({ type: 'dataReceived', payload: questionsData });
     } catch (error) {
-      dispatch({ type: 'dataFiled', payload: error });
+      dispatch({ type: 'dataFailed', payload: error });
     }
   }, []);
 
