@@ -3,6 +3,7 @@ import { useQuestions } from './Contexts/questionsContext';
 
 import Home from './components/Home';
 import Questions from './components/Questions';
+import ResultScreen from './components/ResultScreen'; // If needed
 
 import reactLogo from './logo512.png';
 import reactTitle from './assets/title.png';
@@ -17,13 +18,28 @@ const App = () => {
         <img src={reactTitle} alt="The React Quiz Title" className="h-28 object-contain" />
       </header>
 
+      {/* Loading State */}
+      {status === 'loading' && (
+        <div className="text-center text-xl py-20">Loading quiz...</div>
+      )}
+
+      {/* Error State */}
+      {status === 'error' && (
+        <div className="text-center text-red-500 text-xl py-20">
+          Failed to load quiz. Please try again.
+        </div>
+      )}
+
+      {/* Welcome Screen */}
       {status === 'ready' && (
         <Home onStart={() => dispatch({ type: 'start' })} />
       )}
 
-      {['active', 'finished', 'loading', 'error'].includes(status) && (
-        <Questions />
-      )}
+      {/* Quiz Questions */}
+      {status === 'active' && <Questions />}
+
+      {/* Final Result Screen (if separated) */}
+      {status === 'finished' && <Questions />} {/* or <ResultScreen /> */}
     </div>
   );
 };
